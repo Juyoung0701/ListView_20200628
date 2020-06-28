@@ -2,12 +2,16 @@ package kr.co.namu.listview_20200628
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kotlinx.android.synthetic.main.activity_main.*
+import kr.co.namu.listview_20200628.adapter.StudentAdapter
 import kr.co.namu.listview_20200628.datas.Student
 
 class MainActivity : AppCompatActivity() {
 
 
     val mStudentList = ArrayList<Student>()
+
+    lateinit var mAdapter : StudentAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +26,13 @@ class MainActivity : AppCompatActivity() {
         mStudentList.add(Student("박종우", 1997))
         mStudentList.add(Student("최예준", 2004))
         mStudentList.add(Student("조경진", 1988))
+
+
+//        아직 내용물을 안넣어준 mAdapter에 실제로 내용물 채우기.
+        mAdapter = StudentAdapter(this, R.layout.student_list_item, mStudentList)
+
+//        완성된 mAdapter를 리스트뷰와 연결
+        studentListView.adapter = mAdapter
 
 
 
