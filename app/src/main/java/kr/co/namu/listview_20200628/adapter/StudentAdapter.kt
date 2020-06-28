@@ -42,6 +42,8 @@ class StudentAdapter(val mContext:Context, val resId:Int, val mList:ArrayList<St
 
         val nameTxt = row.findViewById<TextView>(R.id.nameTxt)
         val ageTxt = row.findViewById<TextView>(R.id.ageTxt)
+        val addressTxt = row.findViewById<TextView>(R.id.addressTxt)
+
 
 //      상황에 맞는 (=> position에 들어있는 값에 맞는) 데이터를 출력
 
@@ -58,6 +60,8 @@ class StudentAdapter(val mContext:Context, val resId:Int, val mList:ArrayList<St
 //        현재년도 - 생년 + 1살
 
         ageTxt.text = "${2020-studentData.birthYear+1}세"
+
+        addressTxt.text = studentData.address
 
 
         return row
